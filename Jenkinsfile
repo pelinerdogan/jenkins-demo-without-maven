@@ -16,7 +16,7 @@ node {
         }
     stage('Clone repository') {
         checkout([$class: 'GitSCM', branches: [[name: "${branchName}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[ url: "${gitProjectURL}"]]])        
-            
+    }        
         sh("cp mytmp/${dockerProjectName} .")
         
         fileOperations([folderDeleteOperation('mytmp')])
