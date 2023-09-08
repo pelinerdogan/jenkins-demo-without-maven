@@ -28,7 +28,6 @@ node {
         
             docker.withRegistry('http://192.168.1.2:5000') {
                 def customImage = docker.build("${containerName}")
-                customImage.push("${VERSION}")
                 customImage.push("${latestTag}")
             
         }
