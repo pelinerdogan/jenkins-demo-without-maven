@@ -14,8 +14,10 @@ node {
         dir('mytmp') {
             checkout([$class: 'GitSCM', branches: [[name: "${dockerBranchName}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[ url: "${dockerProjectURL}"]]])
         }
+    stage('Clone repository') {
+        checkout([$class: 'GitSCM', branches: [[name: "${branchName}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[ url: "${gitProjectURL}"]]])        
             
-            sh("cp mytmp/${dockerProjectName} .")
+        sh("cp mytmp/${dockerProjectName} .")
         
         fileOperations([folderDeleteOperation('mytmp')])
     }
