@@ -3,12 +3,12 @@ node {
     containerName = 'simple-java'
     latestTag = 'latest'
     branchName = 'main'
-    dockerProjectURL = 'https://github.com/ozanbozkurtt/dockerfiles-demo.git'
+    dockerProjectURL = 'https://github.com/pelinerdogan/dockerfiles-demo.git'
     dockerBranchName = 'main'
     dockerProjectName = 'Dockerfile'
-    sonarProjectKey = 'simple-java'
-    sonarLoginToken = 'sqp_18edf432e534ae4652cf09a17c6bbca952ae901d'
-    sonarHostUrl = 'http://192.168.1.2:9000'
+    sonarProjectKey = 'simple-java'     
+    sonarLoginToken = 'sqa_0b63a57af05fe4efc3b5f7fa9e7cf10c2a312afd'     
+    sonarHostUrl = 'http://192.168.184.128:9000'
     stage('Get Dockerfile repository') {
         fileOperations([folderCreateOperation('mytmp')])
         dir('mytmp') {
@@ -26,7 +26,7 @@ node {
          env.PATH = "${dockerHome}/bin:${env.PATH}"
             
         
-            docker.withRegistry('http://192.168.1.2:5000') {
+            docker.withRegistry('http://192.168.184.128:5000') {
                 def customImage = docker.build("${containerName}")
                 customImage.push("${latestTag}")
             
