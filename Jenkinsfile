@@ -7,7 +7,7 @@ node {
     dockerBranchName = 'main'
     dockerProjectName = 'Dockerfile'
     sonarProjectKey = 'simple-java'     
-    sonarLoginToken = 'sqa_0b63a57af05fe4efc3b5f7fa9e7cf10c2a312afd'     
+    sonarLoginToken = 'sqa_f1d01c4813e55327904fcef809bd7b188078be69'     
     sonarHostUrl = 'http://192.168.184.128:9000'
     stage('Get Dockerfile repository') {
         fileOperations([folderCreateOperation('mytmp')])
